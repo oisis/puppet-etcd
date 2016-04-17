@@ -253,18 +253,16 @@ class etcd (
   $debug                       = $etcd::params::debug,
   $log_package_levels          = $etcd::params::log_package_levels,
 ) inherits etcd::params {
-#  validate_integer([
-#    $snapshot_count,
-#    $heartbeat_interval,
-#    $election_timeout,
-#    $max_snapshots,
-#    $max_wals,
-#    $proxy_failure_wait,
-#    $proxy_refresh_interval,
-#    $proxy_dial_timeout,
-#    $proxy_write_timeout,
-#    $proxy_read_timeout,
-#    ])
+  if $snapshot_count{ validate_integer($snapshot_count)}
+  if $heartbeat_interval{ validate_integer($heartbeat_interval)}
+  if $election_timeout{ validate_integer($election_timeout)}
+  if $max_snapshots{ validate_integer($max_snapshots)}
+  if $max_wals{ validate_integer($max_wals)}
+  if $proxy_failure_wait{ validate_integer($proxy_failure_wait)}
+  if $proxy_refresh_interval{ validate_integer($proxy_refresh_interval)}
+  if $proxy_dial_timeout{ validate_integer($proxy_dial_timeout)}
+  if $proxy_write_timeout{ validate_integer($proxy_write_timeout)}
+  if $proxy_read_timeout{ validate_integer($proxy_read_timeout)}
   if $discovery_fallback{ validate_re($discovery_fallback, '^(proxy|exit)$') }
   if $data_dir{ validate_absolute_path($data_dir) }
   if $initial_cluster_state{ validate_re($initial_cluster_state, '^(new|existing)$') }
