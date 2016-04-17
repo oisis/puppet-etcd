@@ -248,22 +248,22 @@ class etcd (
   $debug                       = $etcd::params::debug,
   $log_package_levels          = $etcd::params::log_package_levels,
 ) inherits etcd::params {
-  validate_integer([
-    $snapshot_counter,
-    $heartbeat_interval,
-    $election_timeout,
-    $max_snapshots,
-    $max_wals,
-    $proxy_failure_wait,
-    $proxy_refresh_interval,
-    $proxy_dial_timeout,
-    $proxy_write_timeout,
-    $proxy_read_timeout,
-    ])
-  validate_bool($strict_reconfig_check, $client_cert_auth, $peer_client_cert_auth, $debug)
-  validate_re($initial_cluster_state, '^(new|existing)$')
-  validate_re($discovery_fallback, '^(proxy|exit)$')
-  validate_absolute_path($data_dir)
+#  validate_integer([
+#    $snapshot_counter,
+#    $heartbeat_interval,
+#    $election_timeout,
+#    $max_snapshots,
+#    $max_wals,
+#    $proxy_failure_wait,
+#    $proxy_refresh_interval,
+#    $proxy_dial_timeout,
+#    $proxy_write_timeout,
+#    $proxy_read_timeout,
+#    ])
+#  validate_bool($strict_reconfig_check, $client_cert_auth, $peer_client_cert_auth, $debug)
+#  validate_re($initial_cluster_state, '^(new|existing)$')
+#  validate_re($discovery_fallback, '^(proxy|exit)$')
+#  validate_absolute_path($data_dir)
   if $cert_file { validate_absolute_path($cert_file) }
   if $key_file { validate_absolute_path($key_file) }
   if $trusted_ca_file { validate_absolute_path($trusted_ca_file) }
