@@ -18,6 +18,12 @@ Solution:
 * Don't care. Even if the protocol is http, the communication will be over ssl
 * redeploy the cluster (rm -rf /var/lib/etcd/$data_dir)
 
+# Latest version is compatible with: #
+  * Puppet Enterprise 3.8.x, 3.7.x, 3.3.x, 3.2.x, 3.1.x
+  * Puppet 3.x
+  * RedHat, Debian
+  * etcd 2.2.x
+
 ##Usage:
 
 ### Basic usage:
