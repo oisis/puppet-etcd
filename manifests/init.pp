@@ -28,6 +28,10 @@
 #   Whether you want to kube daemons to start up at boot
 #   Defaults to true
 #
+# [*etcd_packagename*]
+#   Define rpm/deb package name to install etcd
+#   Defaults to etcd
+#
 #  member
 # [*etcd_name*]
 #   Human-readable name for this member.
