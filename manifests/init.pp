@@ -265,10 +265,13 @@ class etcd (
 #    $proxy_write_timeout,
 #    $proxy_read_timeout,
 #    ])
-#  validate_bool($strict_reconfig_check, $client_cert_auth, $peer_client_cert_auth, $debug)
-#  validate_re($initial_cluster_state, '^(new|existing)$')
-#  validate_re($discovery_fallback, '^(proxy|exit)$')
-#  validate_absolute_path($data_dir)
+  if $discovery_fallback{ validate_re($discovery_fallback, '^(proxy|exit)$') }
+  if $data_dir{ validate_absolute_path($data_dir) }
+  if $initial_cluster_state{ validate_re($initial_cluster_state, '^(new|existing)$') }
+  if $debug { validate_bool($debug) }
+  if $client_cert_auth { validate_bool($client_cert_auth) }
+  if $peer_client_cert_auth { validate_bool($peer_client_cert_auth) }
+  if $strict_reconfig_check { validate_bool($strict_reconfig_check) }
   if $cert_file { validate_absolute_path($cert_file) }
   if $key_file { validate_absolute_path($key_file) }
   if $trusted_ca_file { validate_absolute_path($trusted_ca_file) }
