@@ -205,6 +205,7 @@ class etcd (
   $config_file_path            = $etcd::params::config_file_path,
   $service_ensure              = $etcd::params::service_ensure,
   $service_enable              = $etcd::params::service_enable,
+  $etcd_packagename            = $etcd::params::etcd_packagename,
   # member
   $etcd_name                   = 'default',
   $data_dir                    = "/var/lib/etcd/${etcd_name}.etcd",
