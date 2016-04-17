@@ -10,8 +10,9 @@ class etcd::service {
 
   if $::etcd::manage_service {
     service { 'etcd':
-      ensure => $::etcd::service_ensure,
-      enable => $::etcd::service_enable,
+      ensure  => $::etcd::service_ensure,
+      enable  => $::etcd::service_enable,
+      require => Package[ $::etcd::etcd_packagename ],
     }
   }
 }
