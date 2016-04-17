@@ -34,7 +34,7 @@ or
 
     class { 'etcd':
       ensure                     => 'latest',
-      etcd_listen_client_urls    => 'http://0.0.0.0:2379',
+      listen_client_urls    => 'http://0.0.0.0:2379',
     }
 
 Add a key/value pair to etcd:
