@@ -43,7 +43,7 @@
 #   and helps avoid io competition between logging and other IO operations.
 #   default: ""
 #
-# [*snapshot_counter*]
+# [*snapshot_count*]
 #   Number of committed transactions to trigger a snapshot to disk.
 #   default: "10000"
 #
@@ -209,7 +209,7 @@ class etcd (
   $etcd_name                   = 'default',
   $data_dir                    = "/var/lib/etcd/${etcd_name}.etcd",
   $wal_dir                     = $etcd::params::wal_dir,
-  $snapshot_counter            = $etcd::params::snapshot_counter,
+  $snapshot_count              = $etcd::params::snapshot_count,
   $heartbeat_interval          = $etcd::params::heartbeat_interval,
   $election_timeout            = $etcd::params::election_timeout,
   $listen_client_urls          = $etcd::params::listen_client_urls,
@@ -249,7 +249,7 @@ class etcd (
   $log_package_levels          = $etcd::params::log_package_levels,
 ) inherits etcd::params {
 #  validate_integer([
-#    $snapshot_counter,
+#    $snapshot_count,
 #    $heartbeat_interval,
 #    $election_timeout,
 #    $max_snapshots,

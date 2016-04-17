@@ -4,8 +4,8 @@ ETCD_DATA_DIR="<%= scope['etcd::data_dir'] %>"
 <% unless [nil, :undefined, :undef, ''].include?(scope['etcd::wal_dir']) -%>
 ETCD_WAL_DIR="<%= scope['etcd::wal_dir'] %>"
 <% end -%>
-<% unless [nil, :undefined, :undef, ''].include?(scope['etcd::snapshot_counter']) -%>
-ETCD_SNAPSHOT_COUNT="<%= scope['etcd::snapshot_counter'] %>"
+<% unless [nil, :undefined, :undef, ''].include?(scope['etcd::snapshot_count']) -%>
+ETCD_SNAPSHOT_COUNT="<%= scope['etcd::snapshot_count'] %>"
 <% end -%>
 <% unless [nil, :undefined, :undef, ''].include?(scope['etcd::heartbeat_interval']) -%>
 ETCD_HEARTBEAT_INTERVAL="<%= scope['etcd::heartbeat_interval'] %>"
@@ -106,7 +106,7 @@ ETCD_PEER_TRUSTED_CA_FILE="<%= scope['etcd::peer_trusted_ca_file'] %>"
 #[logging]
 <% unless [nil, :undefined, :undef, ''].include?(scope['etcd::debug']) -%>
 ETCD_DEBUG=<%= scope['etcd::debug'] %>
-<% end -%>
+<% end %>
 <% unless [nil, :undefined, :undef, ''].include?(scope['etcd::log_package_levels']) -%>
 ETCD_LOG_PACKAGE_LEVELS="<%= scope['etcd::log_package_levels'] %>"
 <% end -%>

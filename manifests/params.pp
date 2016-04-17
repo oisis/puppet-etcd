@@ -25,27 +25,30 @@ class etcd::params {
 
   $service_ensure = 'running'
   $service_enable = true
+
   # member options
+  $etcd_name = 'default'
+  $data_dir = undef
   $wal_dir = ''
-  $snapshot_counter = undef
+  $snapshot_count = undef
   $heartbeat_interval = undef
   $election_timeout = undef
-  $listen_client_urls = ['http://0.0.0.0:2379']
-  $advertise_client_urls = ['http://localhost:2379']
+  $listen_peer_urls = undef
+  $listen_client_urls = ['http://localhost:2379']
   $max_snapshots = undef
   $max_wals = undef
   $cors = undef
 
   # cluster options
-  $listen_peer_urls = ['http://localhost:2380', 'http://localhost:4001']
-  $initial_advertise_peer_urls = ['http://localhost:2380']
+  $initial_advertise_peer_urls = undef
+  $initial_cluster = undef
   $initial_cluster_state = undef
   $initial_cluster_token = undef
+  $advertise_client_urls = ['http://localhost:2379']
   $discovery = undef
   $discovery_srv = undef
   $discovery_fallback = undef
   $discovery_proxy = undef
-  $strict_reconfig_check = undef
 
   # proxy
   $proxy = undef
@@ -66,6 +69,6 @@ class etcd::params {
   $peer_trusted_ca_file = undef
 
   # logging
-  $debug = false
+  $debug = undef
   $log_package_levels = undef
 }
