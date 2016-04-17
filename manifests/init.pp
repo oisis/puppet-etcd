@@ -293,6 +293,6 @@ class etcd (
   contain 'etcd::service'
 
   Class['etcd::install'] ->
-  Class['etcd::config'] ~>
+  Class['etcd::config'] ->
   Class['etcd::service']
 }
