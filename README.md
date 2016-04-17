@@ -81,6 +81,11 @@ etcd2.domain.net
       ],
     }
 
+Test cluster(run on server):
+
+    etcdctl cluster-health
+    etcdctl member list
+
 ### Enable ssl for client communication:
 
     class { 'etcd':
