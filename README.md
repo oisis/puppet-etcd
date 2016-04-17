@@ -51,15 +51,34 @@ Remove a key:
 
 ### Deploy a cluster:
 
+etcd1.domain.net
+
     class { 'etcd':
-	    listen_client_urls          => 'http://0.0.0.0:2379',
-	    advertise_client_urls       => "http://${::fqdn}:2379,http://127.0.0.1:2379",
-	    listen_peer_urls            => 'http://0.0.0.0:2380',
-	    initial_advertise_peer_urls => "http://${::fqdn}:2380,http://127.0.0.1:2379",
-	    initial_cluster             => [
-	      "${::hostname}=http://${::fqdn}:2380",
-	      'infra1=http://infra1.domain.net:2380',
-	      'infra2=http://infra2.domain.net:2380'],
+      ensure                      => 'latest',
+      etcd_name                   => 'infra0',
+      listen_client_urls          => 'http://0.0.0.0:2379',
+      listen_peer_urls            => 'http://0.0.0.0:2380',
+      initial_advertise_peer_urls => "http://${::fqdn}:2380",
+      advertise_client_urls       => "http://${::fqdn}:2379",
+      initial_cluster             => [
+        "infra0=http://${::fqdn}:2380",
+        'infra1=http://etcd2.domain.net:2380',
+      ],
+    }
+
+etcd2.domain.net
+
+    class { 'etcd':
+      ensure                      => 'latest',
+      etcd_name                   => 'infra1',
+      listen_client_urls          => 'http://0.0.0.0:2379',
+      listen_peer_urls            => 'http://0.0.0.0:2380',
+      initial_advertise_peer_urls => "http://${::fqdn}:2380",
+      advertise_client_urls       => "http://${::fqdn}:2379",
+      initial_cluster             => [
+        'infra0=http://etcd1.domain.net:2380',
+        "infra1=http://${::fqdn}:2380",
+      ],
     }
 
 ### Enable ssl for client communication:
