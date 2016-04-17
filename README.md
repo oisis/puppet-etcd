@@ -39,11 +39,15 @@ or
 
 Add a key/value pair to etcd:
 
-	etcd_key { '/coreos.com/network/config': value => '{ "Network": "10.1.0.0/16" }' }
+    etcd_key { '/coreos.com/network/config':
+      value => '{ "Network": "10.1.0.0/16", "Backend": { "Type": "vxlan", "VNI": 1 }}',
+    }
 
 Remove a key:
 
-    etcd_key { '/coreos.com/network1/config': ensure => absent }
+    etcd_key { '/coreos.com/network1/config':
+      ensure => absent
+    }
 
 ### Deploy a cluster:
 
