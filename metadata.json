@@ -2,12 +2,16 @@
 	"name": "oisis-etcd",
 	"version": "0.1.0",
 	"author": "OiSiS",
-	"summary": "Installs and configures etcd",
+	"summary": "Install and configure etcd cluster.",
 	"license": "Apache-2.0",
 	"source": "git@github.com:oisis/puppet-etcd.git",
 	"project_page": "https://github.com/oisis/puppet-etcd",
 	"issues_url": "https://github.com/oisis/puppet-etcd/issues",
-	"requirements": [],
+	"requirements": [{
+			"name": "puppetlabs/stdlib",
+			"version_requirement": ">= 4.6.7 < 5.0.0"
+		}
+	],
 	"operatingsystem_support": [{
 			"operatingsystem": "RedHat",
 			"operatingsystemrelease": [ "6",
