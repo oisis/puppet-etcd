@@ -25,7 +25,7 @@ class etcd::params {
 
   $service_ensure = 'running'
   $service_enable = true
-  $etcd_packagename = "etcd"
+  $etcd_packagename = 'etcd'
 
   # member options
   $etcd_name = 'default'
