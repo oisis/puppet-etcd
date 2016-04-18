@@ -1,6 +1,6 @@
 {
 	"name": "oisis-etcd",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"author": "OiSiS",
 	"summary": "Install and configure etcd cluster.",
 	"license": "Apache-2.0",
