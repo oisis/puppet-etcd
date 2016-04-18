@@ -2,9 +2,9 @@
 
 **Forked from [cristifalcas/puppet-etcd](https://travis-ci.org/cristifalcas/puppet-etcd) to refactoring and improvement.**
 - [x] improvement for CentOS 7 base usage
-- [x] improvement for CentOS 7 clustering usage
-- [] improvement for CentOS 7 clustering usage - SSL support
-- [] improvement for CentOS 7 clustering usage - proxy support
+- [x] improvement for CentOS 7 cluster usage
+- [] improvement for CentOS 7 cluster usage - SSL support
+- [] improvement for CentOS 7 cluster usage - proxy support
 - [] refactor code
 - [] add new functions
 
