@@ -1,10 +1,30 @@
-# == Class: etcd
+# Class: etcd::install
 #
-class etcd::install {
-  if $::etcd::manage_package {
+# This module installs etcd package
+#
+# Parameters:
+#
+# [*manage_package*]
+#   If the module should manage the package
+#   Defaults to running
+#
+# [*ensure*]
+#   Passed to the docker package.
+#   Defaults to present
+#
+# [*etcd_packagename*]
+#   Define rpm/deb package name to install etcd
+#   Defaults to etcd
+#
+class etcd::install(
+    $manage_package   = $::etcd::manage_package,
+    $ensure           = $::etcd::ensure,
+    $package_name = $::etcd::etcd_packagename,
+  ) inherits etcd {
+  if $manage_package {
     package { 'etcd':
-      ensure => $::etcd::ensure,
-      name   => $::etcd::etcd_packagename,
+      ensure => $ensure,
+      name   => $package_name,
     }
   }
 }
