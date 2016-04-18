@@ -1,6 +1,6 @@
 # etcd #
 
-** Forked from [cristifalcas/puppet-etcd](https://travis-ci.org/cristifalcas/puppet-etcd) to refactoring and improvement.**
+**Forked from [cristifalcas/puppet-etcd](https://travis-ci.org/cristifalcas/puppet-etcd) to refactoring and improvement.**
 - [x] improvement for CentOS 7 base usage
 - [x] improvement for CentOS 7 clustering usage
 - [] improvement for CentOS 7 clustering usage - SSL support
