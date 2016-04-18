@@ -2,17 +2,40 @@
 #
 # Class to manage the etcd service daemon
 #
-class etcd::service {
+# Parameters:
+#
+# [*service_ensure*]
+#   Whether you want to kube daemons to start up
+#   Defaults to running
+#
+# [*manage_service*]
+#   If the module should manage the service
+#   Defaults to running
+#
+# [*service_enable*]
+#   Whether you want to kube daemons to start up at boot
+#   Defaults to true
+#
+# [*etcd_packagename*]
+#   Define rpm/deb package name to install etcd
+#   Defaults to etcd
+#
+class etcd::service(
+    $service_ensure = $::etcd::service_ensure,
+    $manage_service = $::etcd::manage_service,
+    $service_enable = $::etcd::service_enable,
+    $package_name   = $::etcd::etcd_packagename,
+  ) inherits etcd {
 
-  if ! ($::etcd::service_ensure in [ 'running', 'stopped' ]) {
+  if ! ($service_ensure in [ 'running', 'stopped' ]) {
     fail('service_ensure parameter must be running or stopped')
   }
 
-  if $::etcd::manage_service {
+  if $manage_service {
     service { 'etcd':
-      ensure  => $::etcd::service_ensure,
-      enable  => $::etcd::service_enable,
-      require => Package[ $::etcd::etcd_packagename ],
+      ensure  => $service_ensure,
+      enable  => $service_enable,
+      require => Package[ $package_name ],
     }
   }
 }
