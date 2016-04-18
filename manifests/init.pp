@@ -211,8 +211,8 @@ class etcd (
   $service_enable              = $etcd::params::service_enable,
   $etcd_packagename            = $etcd::params::etcd_packagename,
   # member
-  $etcd_name                   = 'default',
-  $data_dir                    = "/var/lib/etcd/${etcd_name}.etcd",
+  $etcd_name                   = $etcd::params::etcd_name,
+  $data_dir                    = $etcd::params::data_dir,
   $wal_dir                     = $etcd::params::wal_dir,
   $snapshot_count              = $etcd::params::snapshot_count,
   $heartbeat_interval          = $etcd::params::heartbeat_interval,
@@ -225,7 +225,7 @@ class etcd (
   # cluster
   $listen_peer_urls            = $etcd::params::listen_peer_urls,
   $initial_advertise_peer_urls = $etcd::params::initial_advertise_peer_urls,
-  $initial_cluster             = ["${etcd_name}=http://localhost:2380", "${etcd_name}=http://localhost:7001"],
+  $initial_cluster             = $etcd::params::initial_cluster,
   $initial_cluster_state       = $etcd::params::initial_cluster_state,
   $initial_cluster_token       = $etcd::params::initial_cluster_token,
   $discovery                   = $etcd::params::discovery,
