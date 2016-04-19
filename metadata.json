@@ -4,9 +4,10 @@
 	"author": "OiSiS",
 	"summary": "Install and configure etcd cluster.",
 	"license": "Apache-2.0",
-	"source": "git@github.com:oisis/puppet-etcd.git",
+	"source": "https://github.com/oisis/puppet-etcd",
 	"project_page": "https://github.com/oisis/puppet-etcd",
 	"issues_url": "https://github.com/oisis/puppet-etcd/issues",
+	"tags": ["etcd", "puppet"],
 	"requirements": [{
 			"name": "puppetlabs/stdlib",
 			"version_requirement": ">= 4.6.7 < 5.0.0"
@@ -41,11 +42,8 @@
 			"operatingsystemrelease": [ "stretch/sid"]
 		}
 	],
-	"dependencies": [{
-			"name": "puppetlabs/stdlib",
-			"version_requirement": ">= 4.6.0 < 5.0.0"
-		}
+	"dependencies": [
+		{ "name": "puppetlabs/stdlib", "version_requirement": ">= 4.6.0 < 5.0.0" },
 	],
-	"tags": [ "etcd"
-	]
+	"data_provider": "hiera"
 }
