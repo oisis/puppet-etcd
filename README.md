@@ -7,6 +7,7 @@
 - [] improvement for CentOS 7 cluster usage - proxy support
 - [] refactor code
 - [] add new functions
+- [x] hiera support
 
 This module installs and configures etcd.
 
@@ -190,3 +191,18 @@ checking if $::fqdn or $::ipaddress appears in initial_cluster parameter.
       peer_trusted_ca_file        => '/etc/pki/puppet_certs/etcd/ca_cert.pem',
       debug     => true,
     }
+
+### Hiera support
+
+Hiera configuration example:
+
+    etcd::etcd_packagename: 'etcd'
+    etcd::ensure: 'present'
+    etcd::etcd_name: 'infra0'
+    etcd::service_ensure: 'running'
+    etcd::listen_client_urls: 'http://0.0.0.0:2379'
+    etcd::listen_peer_urls: 'http://0.0.0.0:2380'
+    etcd::initial_advertise_peer_urls: "http://%{::fqdn}:2380"
+    etcd::advertise_client_urls: "http://%{::fqdn}:2379"
+    etcd::initial_cluster: ["infra0=http://%{::fqdn}:2380",'infra1=http://etcd2.domain.net:2380']
+    etcd::data_dir: "/var/lib/etcd/infra0.etcd"
