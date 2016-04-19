@@ -4,7 +4,7 @@
 #
 # Parameters:
 #
-# [*ensure*]
+# [*package_ensure*]
 #   Passed to the docker package.
 #   Defaults to present
 #
@@ -28,7 +28,7 @@
 #   Whether you want to kube daemons to start up at boot
 #   Defaults to true
 #
-# [*etcd_packagename*]
+# [*package_name*]
 #   Define rpm/deb package name to install etcd
 #   Defaults to etcd
 #
@@ -203,13 +203,13 @@
 #   default: none (INFO for all packages)
 #
 class etcd (
-  $ensure                      = $etcd::params::ensure,
+  $package_ensure              = $etcd::params::package_ensure,
   $manage_package              = $etcd::params::manage_package,
   $manage_service              = $etcd::params::manage_service,
   $config_file_path            = $etcd::params::config_file_path,
   $service_ensure              = $etcd::params::service_ensure,
   $service_enable              = $etcd::params::service_enable,
-  $etcd_packagename            = $etcd::params::etcd_packagename,
+  $package_name                = $etcd::params::package_name,
   # member
   $etcd_name                   = $etcd::params::etcd_name,
   $data_dir                    = $etcd::params::data_dir,

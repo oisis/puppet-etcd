@@ -16,7 +16,7 @@
 #   Whether you want to kube daemons to start up at boot
 #   Defaults to true
 #
-# [*etcd_packagename*]
+# [*package_name*]
 #   Define rpm/deb package name to install etcd
 #   Defaults to etcd
 #
@@ -24,7 +24,7 @@ class etcd::service(
     $service_ensure = $::etcd::service_ensure,
     $manage_service = $::etcd::manage_service,
     $service_enable = $::etcd::service_enable,
-    $package_name   = $::etcd::etcd_packagename,
+    $package_name   = $::etcd::package_name,
   ) inherits etcd {
 
   if ! ($service_ensure in [ 'running', 'stopped' ]) {

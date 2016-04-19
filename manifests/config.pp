@@ -4,7 +4,7 @@
 #
 # Parameters:
 #
-# [*etcd_packagename*]
+# [*package_name*]
 #   Define rpm/deb package name to install etcd
 #   Defaults to etcd
 #
@@ -13,7 +13,7 @@
 #   Defaults to running
 #
 class etcd::config(
-    $package_name     = $::etcd::etcd_packagename,
+    $package_name     = $::etcd::package_name,
     $config_file_path = $::etcd::config_file_path,
   ) inherits etcd {
   validate_string($package_name)
