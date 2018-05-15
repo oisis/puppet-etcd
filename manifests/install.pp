@@ -22,7 +22,7 @@ class etcd::install(
     $package_name     = $::etcd::package_name,
   ) inherits etcd {
   if $manage_package {
-    package { 'etcd':
+    package { '$package_name':
       ensure => $package_ensure,
       name   => $package_name,
     }
